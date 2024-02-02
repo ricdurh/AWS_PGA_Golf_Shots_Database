@@ -9,11 +9,11 @@ The objective of this project is to create a data pipeline to host 3 tables on A
 
 This process can be broken down to the following steps: 
 
-        1. Upload initial files to S3 Buckets,
-        2. Use 3 different Python scripts to scrape data and be used via AWS Lambda functions
-        3. Create AWS Redshift tables
-        4. Create weekly schedules in CloudWatch to trigger Lambda functions
-        5. Schedule weekly Glue jobs to update Redshift tables
+        1) Upload initial files to S3 Buckets,
+        2) Use 3 different Python scripts to scrape data and be used via AWS Lambda functions
+        3) Create AWS Redshift tables
+        4) Create weekly schedules in CloudWatch to trigger Lambda functions
+        5) Schedule weekly Glue jobs to update Redshift tables
 
 This project was motivated from a blog post by Alex Lohec who was looking to scrape the PGA TOUR's TOURCast web application. Similar to what he [shared](https://alexlohec.com/posts/2021-04-14-scrape/), this project is not for commercial use and I'm not making any of this data public. For those reasons, I feel comfortable accessing the public data on the internet, but respect the PGA's decision to keep control over their data. 
 
