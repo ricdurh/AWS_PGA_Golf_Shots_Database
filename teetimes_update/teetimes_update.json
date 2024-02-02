@@ -1,0 +1,42 @@
+{
+  "name" : "teetimes_update",
+  "jobMode" : "VISUAL",
+  "description" : "",
+  "role" : "arn:aws:iam::590183762855:role/service-role/AWSGlueServiceRole",
+  "executionProperty" : {
+    "maxConcurrentRuns" : 1
+  },
+  "command" : {
+    "name" : "glueetl",
+    "scriptLocation" : "s3://aws-glue-assets-590183762855-us-east-2/scripts/teetimes_update.py",
+    "pythonVersion" : "3"
+  },
+  "defaultArguments" : {
+    "--enable-metrics" : "true",
+    "--enable-spark-ui" : "true",
+    "--spark-event-logs-path" : "s3://aws-glue-assets-590183762855-us-east-2/sparkHistoryLogs/",
+    "--enable-job-insights" : "false",
+    "--enable-observability-metrics" : "true",
+    "--enable-glue-datacatalog" : "true",
+    "--enable-continuous-cloudwatch-log" : "true",
+    "--job-bookmark-option" : "job-bookmark-disable",
+    "--job-language" : "python",
+    "--TempDir" : "s3://aws-glue-assets-590183762855-us-east-2/temporary/",
+    "--enable-auto-scaling" : "true"
+  },
+  "maxRetries" : 0,
+  "allocatedCapacity" : 10,
+  "timeout" : 120,
+  "maxCapacity" : 10.0,
+  "glueVersion" : "4.0",
+  "numberOfWorkers" : 10,
+  "workerType" : "G.1X",
+  "executionClass" : "FLEX",
+  "codeGenConfigurationNodes" : "{\"node-1706894097485\":{\"S3CsvSource\":{\"AdditionalOptions\":{\"EnableSamplePath\":false,\"SamplePath\":\"s3://pga-tournament-data/df_tt_updated.csv\"},\"Escaper\":\"\",\"Exclusions\":[],\"Name\":\"Amazon S3\",\"OptimizePerformance\":false,\"OutputSchemas\":[{\"Columns\":[{\"Name\":\"tournament_id\",\"Type\":\"string\"},{\"Name\":\"tt_id\",\"Type\":\"string\"},{\"Name\":\"roundStatus\",\"Type\":\"string\"},{\"Name\":\"roundInt\",\"Type\":\"int\"},{\"Name\":\"roundDisplay\",\"Type\":\"string\"},{\"Name\":\"roundStatusColor\",\"Type\":\"string\"},{\"Name\":\"groupHole\",\"Type\":\"string\"},{\"Name\":\"groupLocation\",\"Type\":\"string\"},{\"Name\":\"holeLocation\",\"Type\":\"string\"},{\"Name\":\"groupNumber\",\"Type\":\"string\"},{\"Name\":\"groupStatus\",\"Type\":\"string\"},{\"Name\":\"startTee\",\"Type\":\"string\"},{\"Name\":\"teeTime_utc\",\"Type\":\"timestamp\"},{\"Name\":\"courseId\",\"Type\":\"string\"},{\"Name\":\"playerLastName\",\"Type\":\"string\"},{\"Name\":\"playerId\",\"Type\":\"string\"},{\"Name\":\"latitude\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"longitude\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"local_time\",\"Type\":\"timestamp\"},{\"Name\":\"local_time_format\",\"Type\":\"string\"},{\"Name\":\"ttid_playerid\",\"Type\":\"string\"}]}],\"Paths\":[\"s3://pga-tournament-data/df_tt_updated.csv\"],\"QuoteChar\":\"quote\",\"Recurse\":true,\"Separator\":\"comma\",\"WithHeader\":true}}}",
+  "sourceControlDetails" : {
+    "provider" : "GITHUB",
+    "repository" : "AWS_PGA_Shots_Database",
+    "branch" : "features",
+    "folder" : "teetimes_update"
+  }
+}
