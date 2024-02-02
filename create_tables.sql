@@ -1,6 +1,3 @@
-
-
-
 CREATE TABLE weather (
     latitude DECIMAL,
     longitude DECIMAL,
