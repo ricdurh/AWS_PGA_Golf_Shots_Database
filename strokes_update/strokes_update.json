@@ -1,0 +1,42 @@
+{
+  "name" : "strokes_update",
+  "jobMode" : "VISUAL",
+  "description" : "",
+  "role" : "arn:aws:iam::590183762855:role/service-role/AWSGlueServiceRole",
+  "executionProperty" : {
+    "maxConcurrentRuns" : 1
+  },
+  "command" : {
+    "name" : "glueetl",
+    "scriptLocation" : "s3://aws-glue-assets-590183762855-us-east-2/scripts/strokes_update.py",
+    "pythonVersion" : "3"
+  },
+  "defaultArguments" : {
+    "--enable-metrics" : "true",
+    "--enable-spark-ui" : "true",
+    "--spark-event-logs-path" : "s3://aws-glue-assets-590183762855-us-east-2/sparkHistoryLogs/",
+    "--enable-job-insights" : "false",
+    "--enable-observability-metrics" : "true",
+    "--enable-glue-datacatalog" : "true",
+    "--enable-continuous-cloudwatch-log" : "true",
+    "--job-bookmark-option" : "job-bookmark-disable",
+    "--job-language" : "python",
+    "--TempDir" : "s3://aws-glue-assets-590183762855-us-east-2/temporary/",
+    "--enable-auto-scaling" : "true"
+  },
+  "maxRetries" : 0,
+  "allocatedCapacity" : 10,
+  "timeout" : 120,
+  "maxCapacity" : 10.0,
+  "glueVersion" : "4.0",
+  "numberOfWorkers" : 10,
+  "workerType" : "G.1X",
+  "executionClass" : "FLEX",
+  "codeGenConfigurationNodes" : "{\"node-1706894449265\":{\"S3CsvSource\":{\"AdditionalOptions\":{\"EnableSamplePath\":false,\"SamplePath\":\"s3://pga-tournament-data/strokes_df_updated.csv\"},\"Escaper\":\"\",\"Exclusions\":[],\"Name\":\"Amazon S3\",\"OptimizePerformance\":false,\"OutputSchemas\":[{\"Columns\":[{\"Name\":\"playerLastName\",\"Type\":\"string\"},{\"Name\":\"playerId\",\"Type\":\"string\"},{\"Name\":\"tournamentId\",\"Type\":\"string\"},{\"Name\":\"courseId\",\"Type\":\"string\"},{\"Name\":\"local_teetime\",\"Type\":\"timestamp\"},{\"Name\":\"startTee\",\"Type\":\"int\"},{\"Name\":\"round_num\",\"Type\":\"int\"},{\"Name\":\"holeNumber\",\"Type\":\"int\"},{\"Name\":\"displayHole\",\"Type\":\"int\"},{\"Name\":\"par\",\"Type\":\"int\"},{\"Name\":\"status\",\"Type\":\"int\"},{\"Name\":\"score\",\"Type\":\"int\"},{\"Name\":\"fairwayCenterX\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"fairwayCenterY\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"fairwayCenterZ\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"teeOverviewX\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"teeOverviewY\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"teeOverviewZ\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"pinOverviewX\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"pinOverviewY\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"pinOverviewZ\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"yardage\",\"Type\":\"int\"},{\"Name\":\"videoId\",\"Type\":\"string\"},{\"Name\":\"distance\",\"Type\":\"string\"},{\"Name\":\"distanceRemaining\",\"Type\":\"string\"},{\"Name\":\"toLocationCode\",\"Type\":\"string\"},{\"Name\":\"fromLocationCode\",\"Type\":\"string\"},{\"Name\":\"finalStroke\",\"Type\":\"string\"},{\"Name\":\"showMarker\",\"Type\":\"string\"},{\"Name\":\"markerText\",\"Type\":\"string\"},{\"Name\":\"playByPlay\",\"Type\":\"string\"},{\"Name\":\"playByPlayLabel\",\"Type\":\"string\"},{\"Name\":\"strokeNumber\",\"Type\":\"int\"},{\"Name\":\"strokeType\",\"Type\":\"string\"},{\"Name\":\"fromX\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"fromY\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"fromZ\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"toX\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"toY\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"toZ\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"actualFlightTime\",\"Type\":\"int\"},{\"Name\":\"apexHeight\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"ballSpeed\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"clubSpeed\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"smashFactor\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"launchSpin\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"ballTrajKind\",\"Type\":\"string\"},{\"Name\":\"ballTraj_measTimeInt0\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"ballTraj_measTimeInt1\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"ballTraj_spinRateFit0\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"ballTraj_spinRateFit1\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"ballTraj_spinRateFit2\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"ballTraj_spinRateFit3\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"ballTraj_valTimeInt0\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"ballTraj_valTimeInt1\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"ballTraj_xFit0\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"ballTraj_xFit1\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"ballTraj_xFit2\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"ballTraj_xFit3\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"ballTraj_xFit4\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"ballTraj_xFit5\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"ballTraj_xFit6\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"ballTraj_yFit0\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"ballTraj_yFit1\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"ballTraj_yFit2\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"ballTraj_yFit3\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"ballTraj_yFit4\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"ballTraj_yFit5\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"ballTraj_yFit6\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"ballTraj_zFit0\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"ballTraj_zFit1\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"ballTraj_zFit2\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"ballTraj_zFit3\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"ballTraj_zFit4\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"ballTraj_zFit5\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"ballTraj_zFit6\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"tournament_player_shot\",\"Type\":\"string\"}]}],\"Paths\":[\"s3://pga-tournament-data/strokes_df_updated.csv\"],\"QuoteChar\":\"quote\",\"Recurse\":true,\"Separator\":\"comma\",\"WithHeader\":true}}}",
+  "sourceControlDetails" : {
+    "provider" : "GITHUB",
+    "repository" : "AWS_PGA_Shots_Database",
+    "branch" : "features",
+    "folder" : "strokes_update"
+  }
+}
