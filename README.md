@@ -1,6 +1,13 @@
 # AWS_PGA_Shots_Database
 
-The objective of this project is to create a data pipeline to host 3 tables on AWS Redshift: 1) PGA Tour shot level data for 20 players from 2020-2024 (currently > 340,000 shots), 2) PGA Tour tee time data, and 3) hourly weather data for each tournament. This process can be broken down to the following steps: 
+The objective of this project is to create a data pipeline to host 3 tables on AWS Redshift:
+
+        1) PGA Tour shot level data for 20 players from 2020-2024 (currently > 340,000 shots)
+        2) PGA Tour tee time data
+        3) hourly weather data for each tournament.
+
+
+This process can be broken down to the following steps: 
 
         1. Upload initial files to S3 Buckets,
         2. Use 3 different Python scripts to scrape data and be used via AWS Lambda functions
