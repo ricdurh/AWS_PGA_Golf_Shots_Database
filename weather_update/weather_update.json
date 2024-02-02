@@ -1,0 +1,42 @@
+{
+  "name" : "weather_update",
+  "jobMode" : "VISUAL",
+  "description" : "updating the weather data weekly",
+  "role" : "arn:aws:iam::590183762855:role/service-role/AWSGlueServiceRole",
+  "executionProperty" : {
+    "maxConcurrentRuns" : 1
+  },
+  "command" : {
+    "name" : "glueetl",
+    "scriptLocation" : "s3://aws-glue-assets-590183762855-us-east-2/scripts/weather_update.py",
+    "pythonVersion" : "3"
+  },
+  "defaultArguments" : {
+    "--enable-metrics" : "true",
+    "--enable-spark-ui" : "true",
+    "--spark-event-logs-path" : "s3://aws-glue-assets-590183762855-us-east-2/sparkHistoryLogs/",
+    "--enable-job-insights" : "false",
+    "--enable-observability-metrics" : "true",
+    "--enable-glue-datacatalog" : "true",
+    "--enable-continuous-cloudwatch-log" : "true",
+    "--job-bookmark-option" : "job-bookmark-disable",
+    "--job-language" : "python",
+    "--TempDir" : "s3://aws-glue-assets-590183762855-us-east-2/temporary/",
+    "--enable-auto-scaling" : "true"
+  },
+  "maxRetries" : 0,
+  "allocatedCapacity" : 10,
+  "timeout" : 120,
+  "maxCapacity" : 10.0,
+  "glueVersion" : "4.0",
+  "numberOfWorkers" : 10,
+  "workerType" : "G.1X",
+  "executionClass" : "FLEX",
+  "codeGenConfigurationNodes" : "{\"node-1706891145950\":{\"S3CsvSource\":{\"AdditionalOptions\":{\"EnableSamplePath\":false,\"SamplePath\":\"s3://pga-tournament-data/final_hourly_dataframe_update.csv\"},\"Escaper\":\"\",\"Exclusions\":[],\"Name\":\"Amazon S3\",\"OptimizePerformance\":false,\"OutputSchemas\":[{\"Columns\":[{\"Name\":\"latitude\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"longitude\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"year\",\"Type\":\"int\"},{\"Name\":\"event_name\",\"Type\":\"string\"},{\"Name\":\"tournament_id\",\"Type\":\"string\"},{\"Name\":\"start_date\",\"Type\":\"timestamp\"},{\"Name\":\"end_date\",\"Type\":\"timestamp\"},{\"Name\":\"temperature_2m\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"relative_humidity_2m\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"dew_point_2m\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"apparent_temperature\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"rain\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"weather_code\",\"Type\":\"string\"},{\"Name\":\"pressure_msl\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"surface_pressure\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"cloud_cover\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"wind_speed_10m\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"wind_speed_100m\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"wind_direction_10m\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"wind_direction_100m\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"wind_gusts_10m\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"soil_temperature_0_to_7cm\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"soil_moisture_7_to_28cm\",\"Type\":\"decimal(10,2)\"},{\"Name\":\"elevation\",\"Type\":\"string\"},{\"Name\":\"code\",\"Type\":\"string\"},{\"Name\":\"description\",\"Type\":\"string\"},{\"Name\":\"tournament_hourly\",\"Type\":\"string\"},{\"Name\":\"hourly_date\",\"Type\":\"string\"}]}],\"Paths\":[\"s3://pga-tournament-data/final_hourly_dataframe_update.csv\"],\"QuoteChar\":\"quote\",\"Recurse\":true,\"Separator\":\"comma\",\"WithHeader\":true}}}",
+  "sourceControlDetails" : {
+    "provider" : "GITHUB",
+    "repository" : "AWS_PGA_Shots_Database",
+    "branch" : "features",
+    "folder" : "weather_update"
+  }
+}
