@@ -15,7 +15,7 @@ This process can be broken down to the following steps:
         4) Create weekly schedules in CloudWatch to trigger Lambda functions
         5) Schedule weekly Glue jobs to update Redshift tables
 
-This project was motivated from a blog post by Alex Lohec who was looking to scrape the PGA TOUR's TOURCast web application. Similar to what he [shared](https://alexlohec.com/posts/2021-04-14-scrape/), this project is not for commercial use and I'm not making any of this data public. For those reasons, I feel comfortable accessing the public data on the internet, but respect the PGA's decision to keep control over their data and have not shared the code to scrape the data. 
+This project was motivated from a blog post by Alex Lohec who was looking to scrape the PGA TOUR's TOURCast web application. Similar to what he [shared](https://alexlohec.com/posts/2021-04-14-scrape/), this project is not for commercial use and I'm not making any of this data public. For those reasons, I feel comfortable with my rights to access public data on the internet, but respect the PGA's decision to keep control over their data and have not shared any of the code used to scrape the data. 
 
 ## Data
 The weather data comes from the [Open-Meteo](https://open-meteo.com/) Historical Weather and Elevation APIs. All code used to get this hourly weather data is shared in the "lambda_functions" folder. The tee time and shot-level scripts are not shared to respect the privacy and servers of the PGA Tour. The first five rows of the three tables can be found in the "data" folder. \
